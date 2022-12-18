@@ -1,9 +1,16 @@
 const { Time } = require('./index')
 
 describe('Time', () => {
+  test('equaling', () => {
+    const oneTime = new Time
+    const twoTime = new Time
+
+    expect(oneTime.equal(twoTime)).toBe(true)
+    expect(oneTime.equal(twoTime.next())).toBe(false)
+  });
   test('limiting', () => {
     const time = new Time
-    const times = Math.pow(2, 25)
+    const times = Math.pow(2, 20)
 
     let count = 0
 
@@ -32,6 +39,18 @@ describe('Time', () => {
         count++
     }
     expect(count).toBe(0)
+  });
+  test('compare', () => {
+    const firstTime = new Time
+    const secondTime = new Time
+
+    const diff = Math.pow(2, 20)
+    let step = 0
+    while(step++ < diff) secondTime.next()
+
+    expect(firstTime.compare(firstTime)).toBe(0)
+    expect(firstTime.compare(secondTime)).toBe(diff)
+    expect(secondTime.compare(firstTime)).toBe(-diff)
   });
   test('collision', () => {
     const time = new Time
