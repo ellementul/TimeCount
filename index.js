@@ -1,6 +1,10 @@
+const Types = require('message-types')
+const limit = Math.pow(2, 31)
+const indexType = Types.Index.Def(limit)
+
 class Time {
   constructor() {
-    this._limit = Math.pow(2, 31)
+    this._limit = limit
     this._current = [0, this._limit - 1]
   }
   toArray() {
@@ -32,6 +36,18 @@ class Time {
 
     return compareTimeMarks(this._current, time.toArray(), this._limit)
   }
+}
+
+Time.fromArray = function([part_one, part_two]) {
+  if(!part_one && !part_two)
+    throw new TypeError("Both parts cannot be zero!")
+
+  if(indexType.test(part_one))
+    throw new TypeError(`Numbers cannot less zero and more ${limit-1}, they have to be positive integer`)
+
+  const timemark = new Time
+  timemark._current = [part_one, part_two]
+  return timemark
 }
 
 function nextTimeMark(timeMark, limit) {

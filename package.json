@@ -18,5 +18,8 @@
   "homepage": "https://github.com/ellementul/TimeCount#readme",
   "devDependencies": {
     "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "message-types": "github:ellementul/messages-types"
   }
 }

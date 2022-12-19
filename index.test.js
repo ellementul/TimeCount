@@ -65,4 +65,22 @@ describe('Time', () => {
 
     expect(values.size).toBe(times)
   });
+  describe('TimeMark from object as JSON', () => {
+    test('valid arg', () => {
+      const timemark = new Time
+      const arrayTimemark = Time.fromArray(timemark.toArray())
+      expect(timemark.equal(arrayTimemark)).toBe(true);
+    });
+
+    test('both parts is zero', () => {
+      expect(() => {
+        Time.fromArray([0,0])
+      }).toThrow("zero");
+    });
+    test("one part isn't positive integer", () => {
+      expect(() => {
+        Time.fromArray([-1,0])
+      }).toThrow("positive integer");
+    });
+  });
 });
