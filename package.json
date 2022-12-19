@@ -1,6 +1,6 @@
 {
   "name": "timecount",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Generate timemark for events",
   "main": "index.js",
   "scripts": {

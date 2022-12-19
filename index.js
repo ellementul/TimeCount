@@ -99,4 +99,4 @@ function compareTimeMarks(fisrtMark, secondMark, limit) {
   return step
 }
 
-module.exports = { Time }
+module.exports = { Time, LIMIT: limit }
