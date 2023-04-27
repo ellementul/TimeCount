@@ -1,6 +1,6 @@
 {
   "name": "@ellementul/timecount",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Generate timemark for events",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,6 @@
     "jest": "^29.3.1"
   },
   "dependencies": {
-    "message-types": "github:ellementul/messages-types"
+    "@ellementul/message-types": "^2.3.1"
   }
 }

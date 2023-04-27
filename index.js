@@ -1,4 +1,4 @@
-const Types = require('message-types')
+const Types = require('@ellementul/message-types')
 const limit = Math.pow(2, 31)
 const indexType = Types.Index.Def(limit)
 
